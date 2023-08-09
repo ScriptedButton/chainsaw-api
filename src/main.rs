@@ -22,7 +22,7 @@ use chainsaw::{
 #[derive(Parser)]
 #[clap(
     name = "chainsaw",
-    about = "Rapidly work with Forensic Artefacts",
+    about = "Rapidly hunt through Windows Event Logs and other artefacts for IOCs.",
     after_help = r"Examples:
 
     Hunt with Sigma and Chainsaw Rules:
@@ -404,7 +404,7 @@ fn run() -> Result<()> {
                     Document::Hve(json)
                     | Document::Json(json)
                     | Document::Xml(json)
-                    | Document::Mft(json) => json,
+                    | Document::Mft(json) => json.clone(),
                 };
                 if json {
                     if first {
