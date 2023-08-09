@@ -132,16 +132,14 @@ impl super::Parser {
                 };
 
                 // FileId is the SHA-1 hash of the file with "0000" prepended. Discard prefix
-                let sha1_hash = file_id
-                    .as_ref()
-                    .and_then(|id| {
-                        if id.len() == 44 && &id[..4] == "0000" {
-                            Some(String::from(&id[4..]))
-                        } else {
-                            // In case unexpected value
-                            None
-                        }
-                    });
+                let sha1_hash = file_id.as_ref().and_then(|id| {
+                    if id.len() == 44 && &id[..4] == "0000" {
+                        Some(String::from(&id[4..]))
+                    } else {
+                        // In case unexpected value
+                        None
+                    }
+                });
 
                 let key_last_modified_ts = key.last_key_written_date_and_time();
                 let file_entry = FileEntry {
@@ -253,16 +251,14 @@ impl super::Parser {
                     };
 
                     // FileId is the SHA-1 hash of the file with "0000" prepended. Discard prefix
-                    let sha1_hash = file_id
-                        .as_ref()
-                        .and_then(|id| {
-                            if id.len() == 44 && &id[..4] == "0000" {
-                                Some(String::from(&id[4..]))
-                            } else {
-                                // In case unexpected value
-                                None
-                            }
-                        });
+                    let sha1_hash = file_id.as_ref().and_then(|id| {
+                        if id.len() == 44 && &id[..4] == "0000" {
+                            Some(String::from(&id[4..]))
+                        } else {
+                            // In case unexpected value
+                            None
+                        }
+                    });
 
                     let key_last_modified_ts = key_file.last_key_written_date_and_time();
                     let file_entry = FileEntry {
